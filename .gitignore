@@ -1,62 +1,61 @@
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+# General - macOS 系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
 
-## User settings
-xcuserdata/
+# 根目录系统级目录
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
-## Obj-C/Swift specific
+# 远程 AFP 共享目录
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Xcode 基础
+# 忽略用户私有配置（保留项目结构文件）
+*.xcodeproj/*/xcuserdata/
+*.xcworkspace/*/xcuserdata/
+# 编译产物目录
+DerivedData/
+# 索引和打包文件
 *.hmap
-
-## App packaging
 *.ipa
 *.dSYM.zip
 *.dSYM
 
-## Playgrounds
-timeline.xctimeline
-playground.xcworkspace
+# 动态资源生成文件（UIKit 也可能存在）
+*.generated.swift
+*.xcassets/*/.DS_Store
 
-# Swift Package Manager
-#
-# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
-# Packages/
-# Package.pins
-# Package.resolved
-# *.xcodeproj
-#
-# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
-# hence it is not needed unless you have added a package configuration file to your project
-# .swiftpm
+# CocoaPods（若使用）
+Pods/
+# 保留 Podfile.lock 以保证依赖版本一致
 
+# SPM（UIKit 项目也可能使用）
+.swiftpm/
 .build/
+*.swiftinterface
+*.swiftdoc
+*.swiftmodule
 
-# CocoaPods
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# Pods/
-#
-# Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
+# Core Data（若使用）
+*.xcdatamodeld/*/xcuserdata/
+*.xcdatamodeld/*/IDE*
 
-# Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
+# 其他临时文件
+*.log
+*.tmp
 
-Carthage/Build/
-
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo.
-# Instead, use fastlane to re-generate the screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/#source-control
-
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots/**/*.png
-fastlane/test_output
+# 可选：IDE 配置（如 Xcode 之外的工具）
+.idea/
+.vscode/
