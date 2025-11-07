@@ -2,7 +2,7 @@
 //  Range.swift
 //  Learn Tools Records
 //
-//  Created by JYang on 2025/11/7.
+//  Created by JYYQLin on 2025/11/7.
 //
 
 import Foundation
