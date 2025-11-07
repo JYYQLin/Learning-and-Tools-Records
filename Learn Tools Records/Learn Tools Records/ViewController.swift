@@ -16,10 +16,8 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        DoubleDome.printMaxDouble()
-        DoubleDome.printMinDouble()
-        DoubleDome.printDoubleMagnitude()
-        DoubleDome.printDoublePi()
+        
+        DecimalDome.printDecimalMagnitude()
         
 //        DoubleDome.printAddingReportingOverflow(0)
 //        DoubleDome.printSubtractingReportingOverflow(1)

@@ -7,9 +7,66 @@
 
 import Foundation
 
+extension Double {
+    /**
+     roundingMode:
+         .ceiling    向上取整（朝 +∞）    3.1→4.0, -3.1→-3.0    确保结果不小于原始值
+         .floor    向下取整（朝 -∞）    3.9→3.0, -3.1→-4.0    确保结果不大于原始值
+         .down    向零取整（截断）    3.9→3.0, -3.9→-3.0    简单舍弃小数部分
+         .up    远离零取整    3.1→4.0, -3.1→-4.0    确保结果绝对值不小于原始值
+         .halfEven    四舍六入五取偶    3.15→3.2, 3.25→3.2    金融、统计（最小化累积误差）
+         .halfDown    五舍六入    3.15→3.1, 3.16→3.2    特定精度要求的场景
+         .halfUp    四舍五入    3.15→3.2, 3.14→3.1    日常计算、普通精度需求
+     */
+    func format(_ i: Int, roundingMode: NumberFormatter.RoundingMode = .halfUp) -> String {
+        let formatter = NumberFormatter()
+        //最大的小数点数
+        formatter.maximumFractionDigits = i
+        
+        formatter.roundingMode = roundingMode
+        
+        //  设置数字格式，比如 1,123,234
+//        formatter.numberStyle = .decimal
+//        formatter.locale = Locale.current
+//        formatter.locale = Locale(identifier: "zh_CN")
+        
+        return formatter.string(for: self) ?? "\(self)"
+    }
+}
+
+extension Float {
+    /**
+     roundingMode:
+         .ceiling    向上取整（朝 +∞）    3.1→4.0, -3.1→-3.0    确保结果不小于原始值
+         .floor    向下取整（朝 -∞）    3.9→3.0, -3.1→-4.0    确保结果不大于原始值
+         .down    向零取整（截断）    3.9→3.0, -3.9→-3.0    简单舍弃小数部分
+         .up    远离零取整    3.1→4.0, -3.1→-4.0    确保结果绝对值不小于原始值
+         .halfEven    四舍六入五取偶    3.15→3.2, 3.25→3.2    金融、统计（最小化累积误差）
+         .halfDown    五舍六入    3.15→3.1, 3.16→3.2    特定精度要求的场景
+         .halfUp    四舍五入    3.15→3.2, 3.14→3.1    日常计算、普通精度需求
+     */
+    func format(_ i: Int, roundingMode: NumberFormatter.RoundingMode = .halfUp) -> String {
+        let formatter = NumberFormatter()
+        //最大的小数点数
+        formatter.maximumFractionDigits = i
+        
+        formatter.roundingMode = roundingMode
+        
+        //  设置数字格式，比如 1,123,234
+//        formatter.numberStyle = .decimal
+//        formatter.locale = Locale.current
+//        formatter.locale = Locale(identifier: "zh_CN")
+        
+        return formatter.string(for: self) ?? "\(self)"
+    }
+}
+
+
+
 /**
  1、Float的长度(大小)不如Double， Float（32 位浮点数）和 Double（64 位浮点数）
- 
+ Float 可以安全安全存储 6 个数字，也就会小数点前后总共 6 个数字的时候，精度可以保证，进行加减乘数运算不会出问题
+ Double 可以安全存储 15 个数字，也就会小数点前后总共 15个数字的时候，精度可以保证，进行加减乘数运算不会出问题
  
  */
 class DoubleDome {
@@ -122,7 +179,7 @@ extension DoubleDome {
      */
     static func printAddingReportingOverflow(_ i: Double) {
         
-        let result = Double.greatestFiniteMagnitude.addingProduct(2, 3)
+        let result = i.addingProduct(2, 3)
         print(result)
     }
     
