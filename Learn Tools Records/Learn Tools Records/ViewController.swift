@@ -17,19 +17,21 @@ class ViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        DecimalDome.printDecimalMagnitude()
+        let model1 = HashModel()
+        model1.modelID = "dsfdf"
+        model1.modelName = "name1"
         
-//        DoubleDome.printAddingReportingOverflow(0)
-//        DoubleDome.printSubtractingReportingOverflow(1)
-//        DoubleDome.printMultipliedReportingOverflow(2)
-//        
-//        
-//        IntDome.printDividedReportingOverflow(20)
-//        IntDome.printDividedReportingOverflow(0)
-//        
-//        print(2<<1)
-//        print((-1).sign)
-//        print(1.sign)
+        
+        let model2 = HashModel()
+        model2.modelID = "dsfdf"
+        model2.modelName = "name2"
+        
+        if model1 > model2 {
+            print("他们想等")
+        }
+        else{
+            print("不等于")
+        }
     }
 }
 
